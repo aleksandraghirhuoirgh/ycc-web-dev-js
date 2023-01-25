@@ -29,7 +29,7 @@ document.addEventListener('keydown', function (event) {
         addItem();
     }
 })
-
+id
 
 function finishTask(id) {
     let text = document.getElementById(id);

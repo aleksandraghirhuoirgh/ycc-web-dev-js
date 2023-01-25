@@ -9,9 +9,18 @@ function addItem(data) {
 
     if (myInput.value !== '') {
         let newItem = document.createElement('li')
-        newItem.innerText = myInput.value
+        let h = document.getElementsByClassName('form-check-label');
+
+        let newBlock =
+            `<input onclick="finishTask(${h.length})" class="form-check-input me-1" type="checkbox" value="" id="ch-${h.length}">
+       <label id="${h.length}" class="form-check-label" for="ch-${h.length}">${myInput.value}</labeh.lengthl>`
+
+
+        newItem.innerHTML = newBlock
+
+        newItem.classList.add("list-group-item")
         myList.appendChild(newItem)
-        myInput.value = ' ';
+        myInput.value = '';
 
     }
 }
@@ -20,3 +29,16 @@ document.addEventListener('keydown', function (event) {
         addItem();
     }
 })
+
+
+function finishTask(id) {
+    let text = document.getElementById(id);
+
+    if(text.classList.contains('item-completed')) {}
+        else {
+
+        }
+    
+    text.classList.add('item-completed');
+
+}

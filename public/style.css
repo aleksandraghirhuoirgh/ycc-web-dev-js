@@ -31,5 +31,6 @@ body {
   border-top-right-radius: 0;
 }
 .item-completed {
-  text-decoration: line-through
+  text-decoration: line-through;
+  color: rgb(141, 137, 131);
 }

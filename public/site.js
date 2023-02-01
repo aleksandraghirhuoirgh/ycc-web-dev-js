@@ -13,7 +13,7 @@ function addItem(data) {
 
         let newBlock =
             `<input onclick="finishTask(${h.length})" class="form-check-input me-1" type="checkbox" value="" id="ch-${h.length}">
-       <label id="${h.length}" class="form-check-label" for="ch-${h.length}">${myInput.value}</labeh.lengthl>`
+       <label id="${h.length}" class="form-check-label" for="ch-${h.length}">${myInput.value}</labeh.lengthl><button class="delete">Delete</button>`
 
 
         newItem.innerHTML = newBlock
@@ -23,6 +23,15 @@ function addItem(data) {
         myInput.value = '';
 
     }
+   
+}
+document.querySelector('ul').onclick = function(e){
+    const btn =e.target.closest('delete');
+    if (!btn) {
+        return;
+    }
+    btn.parentElement.remove();
+    //btn.closest('li').remove();
 }
 document.addEventListener('keydown', function (event) {
     if (event.keyCode === 13) {
@@ -34,11 +43,10 @@ id
 function finishTask(id) {
     let text = document.getElementById(id);
 
-    if(text.classList.contains('item-completed')) {}
+    if(text.classList.contains('item-completed')) 
+    {text.classList.remove('item-completed')}
         else {
+            text.classList.add('item-completed');
 
         }
-    
-    text.classList.add('item-completed');
-
-}
+    }
